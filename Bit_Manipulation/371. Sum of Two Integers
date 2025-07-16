@@ -1,0 +1,31 @@
+https://leetcode.com/problems/sum-of-two-integers/
+
+class Solution {
+public:
+    int getSum(int a, int b) {
+        while(b){
+           int temp=(a&b)<<1;
+           a=a^b;
+           b=temp;
+        }
+        return a;
+    }
+};
+//10111 -23 a
+
+//11111 -31 b
+
+//pass-1
+//  1000 -8 -a
+
+//101110-32+14-46-b
+
+//pass-2
+//100110-38-a
+
+//010000-16-b
+
+//pass-3
+//110110-54-a
+
+//000000-0-b
