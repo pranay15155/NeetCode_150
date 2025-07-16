@@ -1,0 +1,24 @@
+https://leetcode.com/problems/reverse-integer/description/
+
+class Solution {
+public:
+    int reverse(int x) {
+        int mini=INT_MIN;
+        int maxi=INT_MAX;
+        int ans=0;
+        while(x){
+            if((ans==maxi/10 && x%10>maxi%10) || (ans==mini/10 && x%10<mini%10) || (ans>maxi/10) || (ans<mini/10))return 0;
+            ans=(ans*10)+(x%10);
+            x/=10;
+        }
+        return ans;
+    }
+};
+// for this testcase
+//           1534236469 -->this condition is used --->(ans>maxi/10)
+//because after reversal it will be 964632435 which is greater than ->214748364
+
+//similarly for negative we just reverse the sign because greater number will be smaller in negative 
+
+// INT_MAX:  2147483647
+// INT_MIN: -2147483648
